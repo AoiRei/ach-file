@@ -148,7 +148,7 @@ abstract class ComponentCollection
      * @param ComponentCollection|FileComponent $component
      * @return static for clean method chaining.
      */
-    protected function addComponent($component)
+    public function addComponent($component)
     {
         if (!$this->isOpen) {
             throw new \BadMethodCallException('Unable to add entries to a closed collection');
