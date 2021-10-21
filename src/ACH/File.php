@@ -104,7 +104,17 @@ class File extends ComponentCollection
     public function toString()
     {
         // Add a new line to the end of the file.
-        return parent::toString() . "\n";
+        $sContent = parent::toString()."\n";
+        $aRows = explode( "\n", $sContent );
+        $iRows = count( $aRows );
+        if ( $iRows < 10 )
+        {
+            for ( $i = 0; $i <= ( 10 - $iRows ); $i++ )
+            {
+                $sContent .= self::BLOCKING_FILE_CONTROL_RECORD."\n";
+            }
+        }
+        return $sContent."\n";
     }
 
     /**
@@ -116,7 +126,7 @@ class File extends ComponentCollection
      * File header + file control = 2
      * Batches = 2 * batch count
      * Entries = entry count
-     *  
+     *
      * @return int
      */
     public function getBlockCount(): int

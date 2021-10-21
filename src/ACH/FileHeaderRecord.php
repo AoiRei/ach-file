@@ -107,7 +107,7 @@ class FileHeaderRecord extends FileComponent
             ],
             self::IMMEDIATE_ORIGIN      => [
                 self::FIELD_INCLUSION => self::FIELD_INCLUSION_MANDATORY,
-                self::VALIDATOR       => [self::VALIDATOR_REGEX, '/^\d{10}$/'],
+                self::VALIDATOR       => [self::VALIDATOR_REGEX, '/^\s+\d{9}$/'],
                 self::LENGTH          => 10,
                 self::POSITION_START  => 14,
                 self::POSITION_END    => 23,
