@@ -183,9 +183,9 @@ abstract class ComponentCollection
             throw new \BadMethodCallException('Unable to convert an open batch to a string');
         }
 
-        $content = "{$this->headerRecord->toString()}\n";
+        $content = "{$this->headerRecord->toString()}\r\n";
         foreach ($this->collection as $component) {
-            $content .= "{$component->toString()}\n";
+            $content .= "{$component->toString()}\r\n";
         }
         // Don't add a trailing newline character, let the caller decide if it is required.
         $content .= "{$this->controlRecord->toString()}";

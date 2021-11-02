@@ -104,17 +104,17 @@ class File extends ComponentCollection
     public function toString()
     {
         // Add a new line to the end of the file.
-        $sContent = parent::toString()."\n";
-        $aRows = explode( "\n", $sContent );
+        $sContent = parent::toString()."\r\n";
+        $aRows = explode( "\r\n", $sContent );
         $iRows = count( $aRows );
         if ( $iRows < 10 )
         {
             for ( $i = 0; $i <= ( 10 - $iRows ); $i++ )
             {
-                $sContent .= self::BLOCKING_FILE_CONTROL_RECORD."\n";
+                $sContent .= self::BLOCKING_FILE_CONTROL_RECORD."\r\n";
             }
         }
-        return $sContent."\n";
+        return $sContent;
     }
 
     /**
